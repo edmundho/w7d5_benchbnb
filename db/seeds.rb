@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Bench.destroy_all
 
 User.create(username: 'ryan', password: 'password')
 User.create(username: 'eho', password: 'password')
+
+Bench.create(description: "wash bench", lat: 37.777946, lng: -122.489961)
+Bench.create(description: "land's end bench", lat: 37.786511, lng: -122.493755)
+Bench.create(description: "crissy field bench", lat: 37.806308, lng: -122.450764)
+Bench.create(description: "CT bench", lat: 37.797140, lng: -122.405482)

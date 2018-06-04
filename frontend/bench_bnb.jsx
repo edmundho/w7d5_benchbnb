@@ -7,6 +7,7 @@ import {
   signupUser,
   loginUser
 } from './actions/session_actions';
+import { fetchBenches } from './util/bench_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -29,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.loginUser = loginUser;
-  window.signupUser = signupUser;
+  window.fetchBenches = fetchBenches;
 
 
   ReactDOM.render(<Root store={store}/>, root);
