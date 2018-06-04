@@ -10,7 +10,22 @@ import {
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+  let store;
+
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: window.currentUser
+      },
+      session: {
+        id: Object.keys(window.currentUser)[0]
+      }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;

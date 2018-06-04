@@ -20,10 +20,13 @@ const receiveErrors = errors => ({
 });
 
 export const loginUser = user => dispatch => login(user)
-  .then(resUser => dispatch(receiveCurrentUser(resUser)));
+  .then(resUser => dispatch(receiveCurrentUser(resUser)), 
+    errors => dispatch(receiveErrors(errors.responseJSON)));
 
 export const logoutUser = () => dispatch => logout()
-  .then( () => dispatch(logoutCurrentUser() ));
+  .then( () => dispatch(logoutCurrentUser() ), 
+    errors => dispatch(receiveErrors(errors.responseJSON)));
 
 export const signupUser = user => dispatch => signup(user)
-  .then(resUser => dispatch(receiveCurrentUser(resUser)));
+  .then(resUser => dispatch(receiveCurrentUser(resUser)), 
+    errors => dispatch(receiveErrors(errors.responseJSON)));
